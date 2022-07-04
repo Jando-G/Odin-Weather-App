@@ -13,7 +13,7 @@ async function getImage(query) {
   return resjson.results[0].urls.full;
 }
 function formatAMPM(date) {
-  let hours = date.getHours();
+  let hours = date.getUTCHours();
   const ampm = hours >= 12 ? 'PM' : 'AM';
   hours %= 12;
   hours = hours || 12; // the hour '0' should be '12'
@@ -31,10 +31,11 @@ function updateCity(data) {
   });
   console.log(data);
   const stats = document.getElementById('stats');
-  const d = new Date((data.dt + data.timezone));
+  const d = new Date((data.dt + data.timezone) * 1000);
+  console.log(d.toUTCString());
   const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  stats.children[0].innerHTML = `${weekday[d.getDay()]} ${formatAMPM(d)}`;
 
+  stats.children[0].innerHTML = `${weekday[d.getUTCDay()]} ${formatAMPM(d)}`;
   stats.children[1].innerHTML = `Wind Speed: ${data.wind.speed} mph`;
   stats.children[2].innerHTML = `Humidity: ${data.main.humidity}%`;
   stats.children[3].innerHTML = `Pressure: ${data.main.pressure} hPa`;
@@ -58,7 +59,6 @@ document.getElementById('searchImg').addEventListener('click', () => {
     searchBar.value = '';
   }
 });
-
 searchBar.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     e.preventDefault();
