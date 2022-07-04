@@ -3,6 +3,24 @@ async function getWeather(city) {
     const data = await rawData.json();
     return data;
 }
-let name = getWeather('Oakland').then(data => {
-    console.log(data)
+function updateCity(city) {
+
+}
+
+
+
+const searchBar = document.getElementById('search');
+
+document.getElementById('searchImg').addEventListener('click', () => {
+    if(searchBar.value) {
+        console.log(searchBar.value);
+        searchBar.value = '';
+    }
+})
+
+searchBar.addEventListener('keyup', (e)=> {
+    if(e.keyCode === 13) {
+        e.preventDefault();
+        document.getElementById('searchImg').click();
+    }
 })
