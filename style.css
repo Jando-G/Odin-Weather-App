@@ -4,11 +4,11 @@
     font-family: 'Lato', sans-serif;
 }
 body {
-    background-color: rgb(0, 0, 0);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: rgb(0, 0, 0) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
     display: grid;
     margin: 0;
     width: 100vw;
@@ -58,12 +58,13 @@ padding-left: 0.5rem;
     font-size: 1.5rem;
     margin-right: 1rem;
 }
-.searchDiv {
+#searchDiv {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: 1rem;
     margin-left: 1rem;
     grid-gap: .5rem;
+    justify-self: start;
 }
 #searchImg {
     height: 3rem;

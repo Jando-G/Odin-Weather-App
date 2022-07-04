@@ -1,0 +1,24 @@
+{
+  "name": "odin-weather-app",
+  "version": "1.0.0",
+  "description": "A cool weather webapp for all things weather. Search up your city today!",
+  "main": "javascript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jando-G/Odin-Weather-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jando-G/Odin-Weather-App/issues"
+  },
+  "homepage": "https://github.com/Jando-G/Odin-Weather-App#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
