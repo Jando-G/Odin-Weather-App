@@ -7,6 +7,10 @@ async function getWeather(city) {
     console.log(e);
   }
 }
+
+async function getTime(city) {
+  const rawData = await fetch('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBCrsuULvHjxAN8E3V4Lq2DqoWevNJea_Y&address=');
+}
 async function getImage(query) {
   const res = await fetch(`https://api.unsplash.com/search/photos?client_id=cf3qwBVWad_a_okzh3uH2F82IXA3hYLcbAgZFoMDj2w&page=1&query=${query}`);
   const resjson = await res.json();
