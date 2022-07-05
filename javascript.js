@@ -1,6 +1,8 @@
 async function getWeather(city) {
   try {
-    const rawData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd7c9b2e16fbaba921ae2be63178bf9&units=imperial`);
+    const rawData = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd7c9b2e16fbaba921ae2be63178bf9&units=imperial`,
+    );
     const data = await rawData.json();
     return data;
   } catch (e) {
@@ -8,7 +10,9 @@ async function getWeather(city) {
   }
 }
 async function getImage(query) {
-  const res = await fetch(`https://api.unsplash.com/search/photos?client_id=cf3qwBVWad_a_okzh3uH2F82IXA3hYLcbAgZFoMDj2w&page=1&query=${query}`);
+  const res = await fetch(
+    `https://api.unsplash.com/search/photos?client_id=cf3qwBVWad_a_okzh3uH2F82IXA3hYLcbAgZFoMDj2w&page=1&query=${query}`,
+  );
   const resjson = await res.json();
   return resjson.results[0].urls.full;
 }
@@ -33,7 +37,15 @@ function updateCity(data) {
   const stats = document.getElementById('stats');
   const d = new Date((data.dt + data.timezone) * 1000);
   console.log(d.toUTCString());
-  const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const weekday = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
   stats.children[0].innerHTML = `${weekday[d.getUTCDay()]} ${formatAMPM(d)}`;
   stats.children[1].innerHTML = `Wind Speed: ${data.wind.speed} mph`;
@@ -47,7 +59,9 @@ function updateCity(data) {
   mainInfo.children[4].innerHTML = `L: ${Math.floor(data.main.temp_min)}°`;
   return true;
 }
-getWeather('New York').then((data) => { updateCity(data); });
+getWeather('New York').then((data) => {
+  updateCity(data);
+});
 
 const searchBar = document.getElementById('search');
 
